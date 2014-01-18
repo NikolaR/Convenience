@@ -1,16 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Convenience
 {
     public class AssertUtils
     {
-        public static void NotNull(object obj, string objName)
+        public static void NotNull(object obj, string objName = "")
         {
             if (obj == null)
                 throw new ArgumentNullException(string.Format("Object {0} is required but it holds a null reference.", objName));
+        }
+
+        public static void NotNull<TProperty>(Expression<Func<TProperty>> property)
+        {
+            var lambda = (LambdaExpression)property;
+
+            MemberExpression memberExpression;
+
+            var body = lambda.Body as UnaryExpression;
+            if (body != null)
+            {
+                var unaryExpression = body;
+                memberExpression = (MemberExpression)unaryExpression.Operand;
+            }
+            else
+            {
+                memberExpression = (MemberExpression)lambda.Body;
+            }
+
+            object propValue = property.Compile().Invoke();
+            string propName = memberExpression.Member.Name;
+            NotNull(propValue, propName);
         }
 
         public static void IsTrue(bool trueExp, string message)
