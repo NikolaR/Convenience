@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Convenience
 {
-    public static class StringTool
+    public static class StringUtils
     {
         /// <summary>
         /// Removes diacritics (or "accents") from string and returns stripped string.
