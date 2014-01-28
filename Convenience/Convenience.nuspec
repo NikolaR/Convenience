@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>0.1.0.5</version>
+    <version>$version$</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
@@ -12,10 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
-Initial release.
-	- Assertions helper
-	- String helper for removing diacritics
-</releaseNotes>
+- Introduced collection utility classes
+- Breaking change: Renamed StringTool to StringUtils
+    </releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags></tags>
   </metadata>

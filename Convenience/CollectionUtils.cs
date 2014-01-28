@@ -34,8 +34,8 @@ namespace Convenience
         /// <returns><c>true</c> if content of collections is equal; otherwise <c>false</c>.</returns>
         public static bool ContentEqual<T>(IEnumerable<T> col1, IEnumerable<T> col2)
         {
-            var comparer = Comparer<T>.Default;
-            return ContentEqual<T>(col1, col2, (x, y) => comparer.Compare(x, y) == 0);
+            var comparer = EqualityComparer<T>.Default;
+            return ContentEqual<T>(col1, col2, comparer.Equals);
         }
 
         /// <summary>
@@ -76,8 +76,8 @@ namespace Convenience
         /// <returns><c>true</c> if content of collections is equal; otherwise <c>false</c>.</returns>
         public static bool ContentEquivalent<T>(IEnumerable<T> col1, IEnumerable<T> col2)
         {
-            var comparer = Comparer<T>.Default;
-            return ContentEquivalent<T>(col1, col2, (x, y) => comparer.Compare(x, y) == 0);
+            var comparer = EqualityComparer<T>.Default;
+            return ContentEquivalent<T>(col1, col2, comparer.Equals);
         }
 
         /// <summary>
