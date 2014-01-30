@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -42,7 +43,17 @@
     <Compile Include="AssertUtils.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="CollectionUtils.cs" />
+    <Compile Include="ContextStore\ContextStore.cs" />
+    <Compile Include="ContextStore\ContextStoreException.cs" />
+    <Compile Include="ContextStore\CustomContextStore.cs" />
+    <Compile Include="ContextStore\DictionaryContextStoreBase.cs" />
+    <Compile Include="ContextStore\IContextStore.cs" />
+    <Compile Include="ContextStore\ThreadStaticStore.cs" />
+    <Compile Include="ContextStore\WcfContextStore.cs" />
+    <Compile Include="ContextStore\WcfDataContext.cs" />
+    <Compile Include="ObjectXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializationUtils.cs" />
     <Compile Include="StringUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

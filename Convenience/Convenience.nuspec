@@ -12,8 +12,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
-- Introduced collection utility classes
-- Breaking change: Renamed StringTool to StringUtils
+- Introduced serialization helpers
+- Introduced strongly typed thread static and WFC context store. Should WebAPI and MVC be added? Needs dependency on Microsoft.AspNet.*
     </releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags></tags>
