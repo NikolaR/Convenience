@@ -45,6 +45,15 @@ namespace Convenience
             _storeType = ContextStoreType.Custom;
         }
 
+        /// <summary>
+        /// Resets context store type to Auto, and releases custom context store if one is referenced.
+        /// </summary>
+        public static void Reset()
+        {
+            StoreType = ContextStoreType.Auto;
+            _customCtx = null;
+        }
+
         protected static IContextStore Store
         {
             get
@@ -60,6 +69,8 @@ namespace Convenience
                     return _tsCtx;
                 else if (StoreType == ContextStoreType.Wcf)
                     return _wcfCtx;
+                else if (StoreType == ContextStoreType.Custom)
+                    return _customCtx;
                 throw new InvalidOperationException("Unknown backing data store type is set");
             }
         }
