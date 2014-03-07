@@ -73,6 +73,7 @@
     <Compile Include="CollectionEquivalencyComparisonTests.cs" />
     <Compile Include="ObservableCollestionExtensionsTests.cs" />
     <Compile Include="BinarySerializationUtilsTests.cs" />
+    <Compile Include="ReflectionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Convenience\Convenience.csproj">

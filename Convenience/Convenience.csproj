@@ -53,6 +53,7 @@
     <Compile Include="ContextStore\WcfDataContext.cs" />
     <Compile Include="ObjectXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionUtils.cs" />
     <Compile Include="SerializationUtils.cs" />
     <Compile Include="StringUtils.cs" />
   </ItemGroup>

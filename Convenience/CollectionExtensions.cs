@@ -80,8 +80,6 @@ namespace Convenience
         {
             if (source == null) return;
 
-            //Comparer<TKey> comparer = Comparer<TKey>.Default;
-
             for (int i = source.Count - 1; i >= 0; i--)
             {
                 for (int j = 1; j <= i; j++)
