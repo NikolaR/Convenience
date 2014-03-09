@@ -67,6 +67,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AssertUtils_NullCheckingTests.cs" />
+    <Compile Include="CachingFactoryTests.cs" />
+    <Compile Include="Experiments\DictionaryKeyHandling.cs" />
     <Compile Include="Experiments\StaticFieldsInGenericClass.cs" />
     <Compile Include="Experiments\TypeChecking.cs" />
     <Compile Include="Experiments\WeakReferenceExperiments.cs" />
