@@ -1,0 +1,67 @@
+<h1><img src="https://raw2.github.com/NikolaR/Convenience/master/Convenience/Genie.png" height="80" alt="Genie" /> Convenience</h1>
+
+<h1>What is Convenience?</h1>
+
+<p>.NET library which provides collection of methods and classes useful in different
+everyday programming tasks. Rather then writing boilerplate code over and over I'm
+consolidating what I find useful into a library. Some of the code found in this library is written
+by other authors.</p>
+
+<p>Library is not very extensive at this point but it will be extended as my projects
+raise need for other methods and I get a chance to write unit tests. If you wich to
+contribute, feel free to send me suggestions to send pull requests.</p>
+
+<h1>What do you mean?</h1>
+
+<p><strong>Do you often serialize and deserialize objects? Don't you hate having to create
+<code>Stream</code> and <code>BinaryFormatter</code> objects for such simple feat?</strong></p>
+
+<pre><code>Product product = ...;
+byte[] bytes = SerializationUtils.Serialize(product);
+Product product2 = SerializationUtils.Deserialize&lt;Product&gt;(bytes);
+</code></pre>
+
+<p><strong>Do you need to deep clone an object?</strong></p>
+
+<pre><code>Product product2 = SerializationUtils.DeepClone(product);
+</code></pre>
+
+<p><strong>Need to compare collections for equality or equivalence?</strong></p>
+
+<pre><code>int[] data1 = new int[] { 42, 1389, 1999, 1945, 1676 };
+List&lt;int&gt; data2 = new List&lt;int&gt;(data1);
+var equal = CollectionUtils.ContentEqual(data1, data2); // returns true
+
+data2.Sort();
+equal = CollectionUtils.ContentEqual(data1, data2); // returns false
+equivalent = CollectionUtils.ContentEquivalent(data1, data2); // returns true
+</code></pre>
+
+<p><strong>Make sure method parameters are provided</strong></p>
+
+<pre><code>public int CountPrimes(IEnumerable&lt;int&gt; nums)
+{
+    // Throws ArgumentNullException stating 'Object nums is required but it holds a null reference.'
+    AssertUtils.NotNull( () =&gt; nums );
+    ...
+}
+</code></pre>
+
+<h1>How do I get it?</h1>
+
+<p>Open your NuGet package management console and run</p>
+
+<pre><code>PM&gt; install-package Convenience
+</code></pre>
+
+<p>Include it's namespace (<code>using Convenience;</code>) and explore. There is no documentation
+at this point, but method names are mostly descriptive enough and there are unit
+tests if you wan't to get better idea.</p>
+
+<h1>Can't you make more appropriate icon?</h1>
+
+<p>I'm not as talented as guys at <a href="http://icons8.com">Icons8</a> which created this icon. If you
+have a better idea or you can make a custom icon I'd like to hear from you!</p>
+
+<p>Convenience library is Copyright &copy; 2013-2014 <a href="http://nikolar.com">Nikola Radosavljević</a>
+and other contributors under the <a href="LICENSE.txt">MIT license</a></p>

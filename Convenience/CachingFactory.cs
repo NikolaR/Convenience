@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Convenience
 {
-    public class ReflectionUtils
+    public class CachingFactory
     {
-
     }
 }
