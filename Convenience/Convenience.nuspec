@@ -10,12 +10,16 @@
     <projectUrl>https://github.com/NikolaR/Convenience</projectUrl>
     <iconUrl>https://raw2.github.com/NikolaR/Convenience/master/Convenience/Genie.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>
+.NET library which provides collection of methods and classes useful in different everyday programming tasks. Rather then writing boilerplate code over and over I'm consolidating what I find useful into a library.
+	</description>
     <releaseNotes>
-- Introduced serialization helpers
-- Introduced strongly typed thread static and WFC context store. Should WebAPI and MVC be added? Needs dependency on Microsoft.AspNet.*
+- Introduced TypeUtils with few type checks
+- Introduced Singleton&lt;T&gt; to facilitate singleton of third party types
+- Introduced CachedFactory&lt;TArg, TResult&gt;. Used to cache and speed up result of some operations (for example, using reflection to get properties from a type)
+- Draft of WeakMemoryCache
     </releaseNotes>
-    <copyright>Copyright 2014</copyright>
+    <copyright>Copyright &#169; 2014 Nikola Radosavljević</copyright>
     <tags></tags>
   </metadata>
 </package>
