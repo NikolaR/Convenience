@@ -54,6 +54,7 @@
     <Compile Include="ContextStore\WcfContextStore.cs" />
     <Compile Include="ContextStore\WcfDataContext.cs" />
     <Compile Include="Singleton.cs" />
+    <Compile Include="TwoWayDictionary.cs" />
     <Compile Include="WeakMemoryCache.cs" />
     <Compile Include="ObjectXmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

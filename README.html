@@ -14,16 +14,12 @@ contribute, feel free to send me suggestions to send pull requests.</p>
 <h1>What do you mean?</h1>
 
 <p><strong>Do you often serialize and deserialize objects? Don't you hate having to create
-<code>Stream</code> and <code>BinaryFormatter</code> objects for such simple feat?</strong></p>
+<code>Stream</code> and <code>BinaryFormatter</code> objects for such simple feat? Or make a deep clone_</strong></p>
 
 <pre><code>Product product = ...;
 byte[] bytes = SerializationUtils.Serialize(product);
 Product product2 = SerializationUtils.Deserialize&lt;Product&gt;(bytes);
-</code></pre>
-
-<p><strong>Do you need to deep clone an object?</strong></p>
-
-<pre><code>Product product2 = SerializationUtils.DeepClone(product);
+Product product2 = SerializationUtils.DeepClone(product);
 </code></pre>
 
 <p><strong>Need to compare collections for equality or equivalence?</strong></p>

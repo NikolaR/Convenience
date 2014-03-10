@@ -17,6 +17,7 @@
 - Introduced TypeUtils with few type checks
 - Introduced Singleton&lt;T&gt; to facilitate singleton of third party types
 - Introduced CachedFactory&lt;TArg, TResult&gt;. Used to cache and speed up result of some operations (for example, using reflection to get properties from a type)
+- Introduced TwoWayDictionary&lt;T1, T2&gt;
 - Draft of WeakMemoryCache
     </releaseNotes>
     <copyright>Copyright &#169; 2014 Nikola Radosavljević</copyright>
