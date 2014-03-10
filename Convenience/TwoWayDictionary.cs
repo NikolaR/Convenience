@@ -20,6 +20,38 @@ namespace Convenience
 
         #endregion Fields
 
+        #region Ctors
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public TwoWayDictionary()
+        { }
+
+
+        /// <summary>
+        /// Constructs two way dictionary with provided collections. Each element in first collection
+        /// is matched up with element on same index in second collection. Collections must contain
+        /// same number of elements and must not contain <c>null</c> values.
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        public TwoWayDictionary(IEnumerable<T1> first, IEnumerable<T2> second)
+        {
+            AssertUtils.NotNull(first, "first");
+            AssertUtils.NotNull(second, "second");
+            var fst = first.ToArray();
+            var snd = second.ToArray();
+            if (fst.Length != snd.Length)
+                throw new ArgumentException("Collections of keys and values must have same number of elements");
+
+            for (int i = 0; i < fst.Length; i++)
+                if (fst[i] == null || snd[i] == null)
+                    throw new ArgumentException("Collections of keys and values must not contain null values");
+        }
+
+        #endregion Ctors
+
         #region Properties
 
         /// <summary>
