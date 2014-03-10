@@ -48,6 +48,9 @@ namespace Convenience
             for (int i = 0; i < fst.Length; i++)
                 if (fst[i] == null || snd[i] == null)
                     throw new ArgumentException("Collections of keys and values must not contain null values");
+
+            for (int i = 0; i < fst.Length; i++)
+                AddByFirst(fst[i], snd[i]);
         }
 
         #endregion Ctors
