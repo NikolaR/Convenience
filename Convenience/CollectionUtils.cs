@@ -20,8 +20,8 @@ namespace Convenience
         /// <returns><c>true</c> if collection sizes are same; otherwise <c>false</c>.</returns>
         public static bool SizeEqual(IEnumerable col1, IEnumerable col2)
         {
-            AssertUtils.NotNull(() => col1);
-            AssertUtils.NotNull(() => col2);
+            AssertUtils.NotNull(col1, "col1");
+            AssertUtils.NotNull(col2, "col2");
 
             return (col1.Count() == col2.Count());
         }
@@ -48,6 +48,10 @@ namespace Convenience
         public static bool ContentEqual<T>(IEnumerable<T> col1, IEnumerable<T> col2, Func<T, T, bool> comparer)
         {
             AssertUtils.NotNull(() => comparer);
+
+            // Materialize to a List to ensure there won't be multiple enumeration
+            col1 = col1.ToList();
+            col2 = col2.ToList();
             if (!SizeEqual(col1, col2))
                 return false;
 
@@ -102,6 +106,56 @@ namespace Convenience
             {
                 T val1 = enumerable1[i];
                 if (!enumerable2.Any(val2 => comparer(val1, val2)))
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Checks whether <paramref name="subset"/> collection is subset of <paramref name="superset"/> collection
+        /// and returns <c>true</c> if it is; otherwise returns <c>false</c>.
+        /// </summary>
+        /// <typeparam name="T">Type of collection elements</typeparam>
+        /// <param name="subset">Subset collection</param>
+        /// <param name="superset">Superset collection</param>
+        /// <returns>
+        /// <c>true</c> if <paramref name="subset"/> is a subset of <paramref name="superset"/> collection; 
+        /// otherwise <c>false</c>.
+        /// </returns>
+        public static bool IsSubset<T>(IEnumerable<T> subset, IEnumerable<T> superset)
+        {
+            var comparer = EqualityComparer<T>.Default;
+            return IsSubset<T>(subset, superset, comparer.Equals);
+        }
+
+        /// <summary>
+        /// Checks whether <paramref name="subset"/> collection is subset of <paramref name="superset"/> collection
+        /// and returns <c>true</c> if it is; otherwise returns <c>false</c>. Custom comparer is used when comparing
+        /// elements of collections.
+        /// </summary>
+        /// <typeparam name="T">Type of collection elements</typeparam>
+        /// <param name="subset">Subset collection</param>
+        /// <param name="superset">Superset collection</param>
+        /// <param name="comparer">Comparer used to compare collection elements for equality</param>
+        /// <returns>
+        /// <c>true</c> if <paramref name="subset"/> is a subset of <paramref name="superset"/> collection; 
+        /// otherwise <c>false</c>.
+        /// </returns>
+        public static bool IsSubset<T>(IEnumerable<T> subset, IEnumerable<T> superset, Func<T, T, bool> comparer)
+        {
+            AssertUtils.NotNull(subset, "subset");
+            AssertUtils.NotNull(superset, "superset");
+            AssertUtils.NotNull(comparer, "comparer");
+
+            var subsetA = subset as T[] ?? subset.ToArray();
+            var supersetA = superset as T[] ?? superset.ToArray();
+
+            var len = subsetA.Length;
+            for (int i = 0; i < len; i++)
+            {
+                T val1 = subsetA[i];
+                if (!supersetA.Any(val2 => comparer(val1, val2)))
                     return false;
             }
 

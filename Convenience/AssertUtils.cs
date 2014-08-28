@@ -136,5 +136,35 @@ namespace Convenience
             if (!type.IsInterface)
                 throw new Exception(string.Format("Parameter '{0}' is not an interface.", varName));
         }
+
+        /// <summary>
+        /// Asserts that <paramref name="subset"/> is a subset of <paramref name="superset"/> collection.
+        /// If assertion fails, an <see cref="Exception"/> is thrown with provided <paramref name="message"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of collection elements</typeparam>
+        /// <param name="subset">Collection expected to be a subset</param>
+        /// <param name="superset">Collection expected to be a superset</param>
+        /// <param name="message">Exception message in case assertion fails</param>
+        public static void IsSubset<T>(IEnumerable<T> subset, IEnumerable<T> superset, string message)
+        {
+            if (!CollectionUtils.IsSubset(subset, superset))
+                throw new Exception(message);
+        }
+
+        /// <summary>
+        /// Asserts that <paramref name="subset"/> is a subset of <paramref name="superset"/> collection.
+        /// Uses provided <paramref name="comparer"/> to check equality of collection elements.
+        /// If assertion fails, an <see cref="Exception"/> is thrown with provided <paramref name="message"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of collection elements</typeparam>
+        /// <param name="subset">Collection expected to be a subset</param>
+        /// <param name="superset">Collection expected to be a superset</param>
+        /// <param name="comparer">Comparer used for checking for element equality</param>
+        /// <param name="message">Exception message in case assertion fails</param>
+        public static void IsSubset<T>(IEnumerable<T> subset, IEnumerable<T> superset, Func<T, T, bool> comparer, string message)
+        {
+            if (!CollectionUtils.IsSubset(subset, superset, comparer))
+                throw new Exception(message);
+        }
     }
 }
