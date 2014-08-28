@@ -15,7 +15,6 @@ namespace Convenience
         /// <summary>Returns the number of elements in a sequence.</summary>
         /// <returns>The number of elements in the input sequence.</returns>
         /// <param name="source">A sequence that contains elements to be counted.</param>
-        /// <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
         /// <exception cref="T:System.ArgumentNullException">
         ///   <paramref name="source" /> is null.</exception>
         /// <exception cref="T:System.OverflowException">The number of elements in <paramref name="source" /> is larger than <see cref="F:System.Int32.MaxValue" />.</exception>
@@ -72,10 +71,11 @@ namespace Convenience
         /// <summary>
         /// Sorts observable collection by provided key selector
         /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TKey"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="keySelector"></param>
+        /// <typeparam name="TSource">Type of collection elements</typeparam>
+        /// <typeparam name="TKey">Type of key used to sort the collection</typeparam>
+        /// <param name="source">Collection to sort</param>
+        /// <param name="keySelector">Select of sort key</param>
+        /// <param name="comparer">Comparer of elements used for sorting</param>
         public static void Sort<TSource, TKey>(this ObservableCollection<TSource> source, Func<TSource, TKey> keySelector, Func<TKey, TKey, int> comparer)
         {
             if (source == null) return;

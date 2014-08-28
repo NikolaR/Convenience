@@ -19,6 +19,10 @@ namespace Convenience
         private readonly Func<TArg, TResult> _factory;
         private readonly Dictionary<TArg, TResult> _cache = new Dictionary<TArg, TResult>();
 
+        /// <summary>
+        /// Creates an instance of caching factory with specified factory method.
+        /// </summary>
+        /// <param name="factory">Factory function used to create elements which are currently not available in cache</param>
         public CachingFactory(Func<TArg, TResult> factory)
         {
             AssertUtils.NotNull(factory, "factory");
@@ -74,6 +78,10 @@ namespace Convenience
         private readonly Func<TArg1, TArg2, TResult> _factory;
         private readonly Dictionary<CompositeKey, TResult> _cache = new Dictionary<CompositeKey, TResult>();
 
+        /// <summary>
+        /// Creates an instance of caching factory with specified factory method.
+        /// </summary>
+        /// <param name="factory">Factory function used to create elements which are currently not available in cache</param>
         public CachingFactory(Func<TArg1, TArg2, TResult> factory)
         {
             AssertUtils.NotNull(factory, "factory");

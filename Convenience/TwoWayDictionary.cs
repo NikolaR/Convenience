@@ -9,9 +9,9 @@ namespace Convenience
     /// <summary>
     /// Collection of paired values which provides way to look up one value of the pair by the other value.
     /// </summary>
-    /// <typeparam name="T1"></typeparam>
-    /// <typeparam name="T2"></typeparam>
-    public class TwoWayDictionary<T1, T2> : IEnumerable<TwoWayDictionary<T1, T2>.Tuple>
+    /// <typeparam name="T1">Type of first dictionary key</typeparam>
+    /// <typeparam name="T2">Type of second dictionary key</typeparam>
+    public class TwoWayDictionary<T1, T2> : IEnumerable<TwoWayDictionary<T1, T2>.KeyPair>
     {
         #region Fields
 
@@ -180,16 +180,30 @@ namespace Convenience
             AddBySecond(key, value);
         }
 
+        /// <summary>
+        /// Finds value by first key and returns it.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns>Value found under specified key</returns>
         public T2 GetByFirst(T1 key)
         {
             return _dict1[key];
         }
 
+        /// <summary>
+        /// Finds value by second key and returns it.
+        /// </summary>
+        /// <param name="key">Key to look for</param>
+        /// <returns>Value found under specified key</returns>
         public T1 GetBySecond(T2 key)
         {
             return _dict2[key];
         }
 
+        /// <summary>
+        /// Removes entry identified by first key if it exists; otherwise just returns.
+        /// </summary>
+        /// <param name="key">Key for which to remove entry from dictionary</param>
         public void RemoveByFirst(T1 key)
         {
             T2 val;
@@ -200,6 +214,10 @@ namespace Convenience
             }
         }
 
+        /// <summary>
+        /// Removes entry identified by second key if it exists; otherwise just returns.
+        /// </summary>
+        /// <param name="key">Key for which to remove entry from dictionary</param>
         public void RemoveBySecond(T2 key)
         {
             T1 val;
@@ -210,51 +228,117 @@ namespace Convenience
             }
         }
 
+        /// <summary>
+        /// Removes entry identified by first key if it exists; otherwise just returns.
+        /// Alias to <see cref="RemoveByFirst"/> when two-way dictionary generic parameters are different.
+        /// </summary>
+        /// <param name="key">Key for which to remove entry from dictionary</param>
         public void Remove(T1 key)
         {
             RemoveByFirst(key);
         }
 
+        /// <summary>
+        /// Removes entry identified by second key if it exists; otherwise just returns.
+        /// Alias to <see cref="RemoveBySecond"/> when two-way dictionary generic parameters are different.
+        /// </summary>
+        /// <param name="key"></param>
         public void Remove(T2 key)
         {
             RemoveBySecond(key);
         }
 
+        /// <summary>
+        /// Checks whether specified object is present as first key.
+        /// </summary>
+        /// <param name="obj">Object which may exist in dictionary as first key</param>
+        /// <returns><c>true</c> if object exists as first key; otherwise <c>false</c></returns>
         public bool ContainsByFirst(T1 obj)
         {
             return _dict1.ContainsKey(obj);
         }
 
+        /// <summary>
+        /// Checks whether specified object is present as second key.
+        /// </summary>
+        /// <param name="obj">Object which may exist in dictionary as second key</param>
+        /// <returns><c>true</c> if object exists as second key; otherwise <c>false</c></returns>
         public bool ContainsBySecond(T2 obj)
         {
             return _dict2.ContainsKey(obj);
         }
 
+        /// <summary>
+        /// Checks whether specified object is present as first key.
+        /// Alias to <see cref="ContainsByFirst"/> when two-way dictionary generic parameters are different.
+        /// </summary>
+        /// <param name="obj">Object which may exist in dictionary as fist key</param>
+        /// <returns><c>true</c> if object exists as first key; otherwise <c>false</c></returns>
         public bool Contains(T1 obj)
         {
             return ContainsByFirst(obj);
         }
 
+        /// <summary>
+        /// Checks whether specified object is present as second key.
+        /// Alias to <see cref="ContainsBySecond"/> when two-way dictionary generic parameters are different.
+        /// </summary>
+        /// <param name="obj">Object which may exist in dictionary as second key</param>
+        /// <returns><c>true</c> if object exists as second key; otherwise <c>false</c></returns>
         public bool Contains(T2 obj)
         {
             return ContainsBySecond(obj);
         }
 
+        /// <summary>
+        /// Tries to get value with specified <paramref name="key"/> as first key and places it in
+        /// <paramref name="value"/>. Returns <c>true</c> if key is found and value is set; otherwise
+        /// returns <c>false</c>.
+        /// </summary>
+        /// <param name="key">First key used to search for value</param>
+        /// <param name="value">Reference in which to set found value</param>
+        /// <returns><c>true</c> if key is found and value is set; otherwise <c>false</c></returns>
         public bool TryGetValueByFirst(T1 key, out T2 value)
         {
             return _dict1.TryGetValue(key, out value);
         }
 
+        /// <summary>
+        /// Tries to get value with specified <paramref name="key"/> as second key and places it in
+        /// <paramref name="value"/>. Returns <c>true</c> if key is found and value is set; otherwise
+        /// returns <c>false</c>.
+        /// </summary>
+        /// <param name="key">Second key used to search for value</param>
+        /// <param name="value">Reference in which to set found value</param>
+        /// <returns><c>true</c> if key is found and value is set; otherwise <c>false</c></returns>
         public bool TryGetValueBySecond(T2 key, out T1 value)
         {
             return _dict2.TryGetValue(key, out value);
         }
 
+        /// <summary>
+        /// Tries to get value with specified <paramref name="key"/> as first key and places it in
+        /// <paramref name="value"/>. Returns <c>true</c> if key is found and value is set; otherwise
+        /// returns <c>false</c>.
+        /// Alias to <see cref="TryGetValueByFirst"/> when two-way dictionary generic type parameters are different.
+        /// </summary>
+        /// <param name="key">First key used to search for value</param>
+        /// <param name="value">Reference in which to set found value</param>
+        /// <returns><c>true</c> if key is found and value is set; otherwise <c>false</c></returns>
         public bool TryGetValue(T1 key, out T2 value)
         {
             return TryGetValueByFirst(key, out value);
         }
 
+        /// <summary>
+        /// Tries to get value with specified <paramref name="key"/> as second key and places it in
+        /// <paramref name="value"/>. Returns <c>true</c> if key is found and value is set; otherwise
+        /// returns <c>false</c>.
+        /// Alias to <see cref="TryGetValueBySecond"/> when two-way dictionary generic type parameters are different.
+        /// </summary>
+        /// <param name="key">Second key used to search for value</param>
+        /// <param name="value">Reference in which to set found value</param>
+        /// <returns><c>true</c> if key is found and value is set; otherwise <c>false</c></returns>
         public bool TryGetValue(T2 key, out T1 value)
         {
             return TryGetValueBySecond(key, out value);
@@ -264,9 +348,19 @@ namespace Convenience
 
         #region Tuple class
 
-        public class Tuple
+        /// <summary>
+        /// Entry of a two-way dictionary
+        /// </summary>
+        public class KeyPair
         {
+            /// <summary>
+            /// First key
+            /// </summary>
             public T1 First { get; set; }
+
+            /// <summary>
+            /// Second key
+            /// </summary>
             public T2 Second { get; set; }
         }
 
@@ -274,39 +368,59 @@ namespace Convenience
 
         #region Enumerator class
 
-        public class TwoWayDictionaryEnumerator : IEnumerator<Tuple>
+        /// <summary>
+        /// Enumerator of <seealso cref="TwoWayDictionary{T1,T2}"/>
+        /// </summary>
+        public class TwoWayDictionaryEnumerator : IEnumerator<KeyPair>
         {
             private TwoWayDictionary<T1, T2> _dictionary;
             private IEnumerator _enumerator;
 
+            /// <summary>
+            /// Default constructor
+            /// </summary>
+            /// <param name="dictionary">Dictionary over which to enumerate</param>
             public TwoWayDictionaryEnumerator(TwoWayDictionary<T1, T2> dictionary)
             {
                 _dictionary = dictionary;
                 _enumerator = _dictionary._dict1.GetEnumerator();
             }
 
+            /// <summary>
+            /// Cleans up after enumerator and releases references to underlying collection
+            /// </summary>
             public void Dispose()
             {
                 _dictionary = null;
                 _enumerator = null;
             }
 
+            /// <summary>
+            /// Advances enumerator to the next element of the collection
+            /// </summary>
+            /// <returns><c>true</c> if enumerator has successfully advanced the pointer; <c>false</c> if it has passed the last element</returns>
             public bool MoveNext()
             {
                 return _enumerator.MoveNext();
             }
 
+            /// <summary>
+            /// Sets enumerator to it's initial position, which is before first element
+            /// </summary>
             public void Reset()
             {
                 _enumerator.Reset();
             }
 
-            public Tuple Current
+            /// <summary>
+            /// Pointer to current entry of the dictionary
+            /// </summary>
+            public KeyPair Current
             {
                 get
                 {
                     KeyValuePair<T1, T2> curr = (KeyValuePair<T1, T2>)(_enumerator.Current);
-                    return new Tuple() { First = curr.Key, Second = curr.Value };
+                    return new KeyPair() { First = curr.Key, Second = curr.Value };
                 }
             }
 
@@ -318,11 +432,19 @@ namespace Convenience
 
         #endregion Enumerator class
 
-        public IEnumerator<Tuple> GetEnumerator()
+        /// <summary>
+        /// Returns enumerator of the dictionary
+        /// </summary>
+        /// <returns>Enumerator of current dictionary</returns>
+        public IEnumerator<KeyPair> GetEnumerator()
         {
             return new TwoWayDictionaryEnumerator(this);
         }
 
+        /// <summary>
+        /// Returns enumerator of the dictionary
+        /// </summary>
+        /// <returns>Enumerator of current dictionary</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

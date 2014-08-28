@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Convenience
 {
+    /// <summary>
+    /// Helper methods for manipulating or checking strings
+    /// </summary>
     public static class StringUtils
     {
         /// <summary>
