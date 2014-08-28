@@ -6,14 +6,31 @@ using System.Text;
 
 namespace Convenience
 {
+    /// <summary>
+    /// Utility for asserting certain conditions. If desired conditions are not met, utility throws
+    /// an appropriate exception. Useful for as method gate for input paremeter checking (e.g. checking
+    /// that provided parameters are not null).
+    /// </summary>
     public class AssertUtils
     {
+        /// <summary>
+        /// Asserts that <paramref name="obj"/> is not <c>null</c>. Throws <see cref="ArgumentNullException"/> if
+        /// argument is <c>null</c>.
+        /// </summary>
+        /// <param name="obj">Target object to check</param>
+        /// <param name="objName">Name of the parameter to use in exception message</param>
         public static void NotNull(object obj, string objName = "")
         {
             if (obj == null)
                 throw new ArgumentNullException(string.Format("Object {0} is required but it holds a null reference.", objName));
         }
 
+        /// <summary>
+        /// Asserts that value returned by <paramref name="property"/> expression is not <c>null</c>.
+        /// Throws <see cref="ArgumentNullException"/> if value is <c>null</c>. Expression is also used to
+        /// get name of the parameter for exception message.
+        /// </summary>
+        /// <param name="property">Expression to use for getting value and name of parameter</param>
         public static void NotNull<TProperty>(Expression<Func<TProperty>> property)
         {
             var lambda = (LambdaExpression)property;
@@ -36,12 +53,24 @@ namespace Convenience
             NotNull(propValue, propName);
         }
 
+        /// <summary>
+        /// Throws an <see cref="Exception"/> if first parameter is <c>false</c> with specified <paramref name="message"/>.
+        /// </summary>
+        /// <param name="trueExp">Flag indicating whether an exception should be thrown</param>
+        /// <param name="message">Message for the exception in case exception needs to be thrown</param>
         public static void IsTrue(bool trueExp, string message)
         {
             if (!trueExp)
                 throw new Exception(message);
         }
 
+        /// <summary>
+        /// Asserts that provided string is not <c>null</c> and that it contains non-whitespace characters. If string is <c>null</c>,
+        /// <see cref="ArgumentNullException"/> is thrown. If it only contains whitespace, <see cref="ArgumentException"/>
+        /// is thrown.
+        /// </summary>
+        /// <param name="text">String whos content should be checked</param>
+        /// <param name="varName">Name of the parameter used for exception message</param>
         public static void HasText(string text, string varName)
         {
             if (text == null)
@@ -50,6 +79,13 @@ namespace Convenience
                 throw new ArgumentException(string.Format("String {0} is required but is empty, or stores only whitespaces.", varName));
         }
 
+        /// <summary>
+        /// Asserts that provided string is not <c>null</c> and that it's length is greater than 0 (it may be comprised
+        /// only of whitespace e.g.). If string is <c>null</c>,  <see cref="ArgumentNullException"/> is thrown.
+        /// If it length of the string is 0, <see cref="ArgumentException"/> is thrown.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="varName"></param>
         public static void HasLength(string text, string varName)
         {
             if (text == null)
@@ -58,6 +94,13 @@ namespace Convenience
                 throw new ArgumentException(string.Format("String {0} is required but is empty", varName));
         }
 
+        /// <summary>
+        /// Asserts that provided <paramref name="type" /> is base for generic type parameter.
+        /// Otherwise throws an <see cref="InvalidOperationException"/>.
+        /// </summary>
+        /// <typeparam name="T">Type which is expected to be derived from provided <paramref name="type"/></typeparam>
+        /// <param name="type">Type from which generic type parameter should be derived</param>
+        /// <param name="varName">Variable name to use in exception message</param>
         public static void IsOfType<T>(Type type, string varName)
         {
             NotNull(type, "type");
@@ -65,6 +108,13 @@ namespace Convenience
                 throw new InvalidOperationException(string.Format("Variable {0} is not of required type ({1})", varName, typeof(T).Name));
         }
 
+        /// <summary>
+        /// Asserts that provided <paramref name="type"/> is derived from provided objects type.
+        /// Otherwise throws an <see cref="Exception"/>.
+        /// </summary>
+        /// <param name="obj">Object whos type is expected to be base of provided <paramref name="type"/></param>
+        /// <param name="type">Type which is expected to be derived from provided objects type.</param>
+        /// <param name="varName">Variable name to use in exception message</param>
         public static void IsOfType(object obj, Type type, string varName)
         {
             NotNull(obj, "obj");
@@ -74,6 +124,12 @@ namespace Convenience
                 throw new Exception(string.Format("Parameter {0} is not of type {1}.", varName, type.FullName));
         }
 
+        /// <summary>
+        /// Asserts that provided <paramref name="type"/> is an interface. If it's not, an <see cref="Exception"/>
+        /// is thrown.
+        /// </summary>
+        /// <param name="type">Type to perform check on</param>
+        /// <param name="varName">Variable to use in exception message</param>
         public static void IsInterface(Type type, string varName)
         {
             NotNull(type, "type");
