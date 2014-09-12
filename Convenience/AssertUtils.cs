@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -165,6 +166,39 @@ namespace Convenience
         {
             if (!CollectionUtils.IsSubset(subset, superset, comparer))
                 throw new Exception(message);
+        }
+
+        /// <summary>
+        /// Asserts that provided collection is not <c>null</c> and that it has at least one item.
+        /// </summary>
+        /// <param name="collection">Collection to check for content</param>
+        /// <param name="collectionName">Name of collection to use in exception message</param>
+        public static void HasLength(IEnumerable collection, string collectionName)
+        {
+            if (!CollectionUtils.HasLength(collection))
+            {
+                string message = collectionName != null
+                    ? string.Format("Collection {0} cannot be null and must have at least one", collectionName)
+                    : "Collection cannot be null and must have at least one item";
+                throw new ArgumentException(message);
+            }
+        }
+
+        /// <summary>
+        /// Asserts that provide collection is not <c>null</c>, contains items and none if the items is
+        /// equal to <c>null</c>.
+        /// </summary>
+        /// <param name="collection">Collection to check</param>
+        /// <param name="collectionName">Name of collection to use in exception message</param>
+        public static void HasContent(IEnumerable collection, string collectionName)
+        {
+            if (!CollectionUtils.HasContent(collection))
+            {
+                string message = collectionName != null
+                    ? string.Format("Collection {0} cannot be null, must have at least one item. None of the items may be null.", collectionName)
+                    : "Collection cannot be null, must have at least one item. None of the items may be null.";
+                throw new ArgumentException(message);
+            }
         }
     }
 }

@@ -161,5 +161,58 @@ namespace Convenience
 
             return true;
         }
+
+        /// <summary>
+        /// Checks if collection is not <c>null</c> and if it has at least one item and returns <c>true</c> if so;
+        /// otherwise returns <c>false</c>.
+        /// </summary>
+        /// <param name="collection">Collection to check for existance of elements</param>
+        /// <returns><c>true</c> if collection has content and is not <c>null</c>; otherwise <c>false</c>.</returns>
+        public static bool HasLength(IEnumerable collection)
+        {
+            if (collection == null)
+                return false;
+            var etor = collection.GetEnumerator();
+            return etor.MoveNext();
+        }
+
+        /// <summary>
+        /// Checks if collection is not <c>null</c>, that it has at least one item, and that all contained
+        /// items are not <c>null</c> and returns <c>true</c> if so; otherwise returns <c>false</c>.
+        /// </summary>
+        /// <param name="collection">Collection to check for existance of content.</param>
+        /// <returns><c>true</c> if collection has items and none of it's items are <c>null</c>; otherwise <c>false</c>.</returns>
+        public static bool HasContent(IEnumerable collection)
+        {
+            if (collection == null)
+                return false;
+            var etor = collection.GetEnumerator();
+            if (!etor.MoveNext())
+                return false;
+            do
+            {
+                if (etor.Current == null)
+                    return false;
+            } while (etor.MoveNext());
+            return true;
+        }
+
+        /// <summary>
+        /// Checks if collection contains at least one <c>null</c> item and returns <c>true</c>; otherwise returns <c>false</c>.
+        /// </summary>
+        /// <param name="collection">Collection which may contain <c>null</c> item.</param>
+        /// <returns><c>true</c> if collection contains <c>null</c> item; otherwise <c>false</c>.</returns>
+        public static bool ContainsNull(IEnumerable collection)
+        {
+            if (collection == null)
+                return false;
+            var etor = collection.GetEnumerator();
+            while (etor.MoveNext())
+            {
+                if (etor.Current == null)
+                    return true;
+            }
+            return false;
+        }
     }
 }
