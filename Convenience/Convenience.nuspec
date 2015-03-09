@@ -14,11 +14,7 @@
 .NET library which provides collection of methods and classes useful in different everyday programming tasks. Rather then writing boilerplate code over and over I'm consolidating what I find useful into a library.
 	</description>
     <releaseNotes>
-- Introduced TypeUtils with few type checks
-- Introduced Singleton&lt;T&gt; to facilitate singleton of third party types
-- Introduced CachedFactory&lt;TArg, TResult&gt;. Used to cache and speed up result of some operations (for example, using reflection to get properties from a type)
-- Introduced TwoWayDictionary&lt;T1, T2&gt;
-- Draft of WeakMemoryCache
+Assembly StrongNamed so that it can be added to GAC
     </releaseNotes>
     <copyright>Copyright &#169; 2014 Nikola Radosavljević</copyright>
     <tags></tags>
