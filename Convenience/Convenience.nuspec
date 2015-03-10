@@ -16,7 +16,7 @@
     <releaseNotes>
 Assembly StrongNamed so that it can be added to GAC
     </releaseNotes>
-    <copyright>Copyright &#169; 2014 Nikola Radosavljević</copyright>
+    <copyright>Copyright &#169; 2015 Nikola Radosavljević</copyright>
     <tags></tags>
   </metadata>
 </package>
