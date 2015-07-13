@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -60,6 +61,7 @@
     <Compile Include="ContextStore\WcfContextStore.cs" />
     <Compile Include="ContextStore\WcfDataContext.cs" />
     <Compile Include="Singleton.cs" />
+    <Compile Include="SystemTime.cs" />
     <Compile Include="TwoWayDictionary.cs" />
     <Compile Include="WeakMemoryCache.cs" />
     <Compile Include="ObjectXmlSerializer.cs" />

@@ -14,7 +14,7 @@
 .NET library which provides collection of methods and classes useful in different everyday programming tasks. Rather then writing boilerplate code over and over I'm consolidating what I find useful into a library.
 	</description>
     <releaseNotes>
-Assembly StrongNamed so that it can be added to GAC
+Added system time management utility functions.
     </releaseNotes>
     <copyright>Copyright &#169; 2015 Nikola Radosavljević</copyright>
     <tags></tags>
