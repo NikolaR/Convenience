@@ -71,7 +71,7 @@ namespace Convenience
         /// Changed system time while services are running will only be in place until those services
         /// fix it (matter of couple of seconds). Thus, services need to be disabled in order to change the time.
         /// </summary>
-        public void StopTimeSyncServices()
+        public static void StopTimeSyncServices()
         {
             ServiceController sc;
             var services = ServiceController.GetServices();
@@ -86,7 +86,7 @@ namespace Convenience
         /// <summary>
         /// Starts Windows services which perform system time synchronization. See <see cref="StopTimeSyncServices"/> for mode details.
         /// </summary>
-        public void StartTimeSyncServices()
+        public static void StartTimeSyncServices()
         {
             ServiceController sc;
             var services = ServiceController.GetServices();
