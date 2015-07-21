@@ -14,7 +14,7 @@
 .NET library which provides collection of methods and classes useful in different everyday programming tasks. Rather then writing boilerplate code over and over I'm consolidating what I find useful into a library.
 	</description>
     <releaseNotes>
-Added system time management utility functions.
+- New StringBuilder2 class which provides line indentation functionality
     </releaseNotes>
     <copyright>Copyright &#169; 2015 Nikola Radosavljević</copyright>
     <tags></tags>

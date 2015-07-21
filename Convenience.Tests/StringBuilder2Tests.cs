@@ -24,5 +24,33 @@ namespace Convenience.Tests
             Assert.IsTrue(result.Contains("\r\n    Line2"));
             Assert.IsTrue(result.Contains("\r\n        Okay"));
         }
+
+        [TestMethod]
+        public void four_level_indent_with_indentation_scope_token()
+        {
+            StringBuilder2 sb = new StringBuilder2();
+            sb.AppendLine();
+            using (var tok1 = sb.Indent())
+            {
+                sb.AppendLine("Line1");
+                using (var tok2 = sb.Indent())
+                {
+                    sb.AppendLine("Line2");
+                    using (var tok3 = sb.Indent(2))
+                    {
+                        sb.AppendLine("Line3");
+                    }
+                    sb.AppendLine("Line4");
+                }
+                sb.AppendLine("Line5");
+            }
+
+            var result = sb.ToString();
+            Assert.IsTrue(result.Contains("\r\n    Line1"));
+            Assert.IsTrue(result.Contains("\r\n        Line2"));
+            Assert.IsTrue(result.Contains("\r\n                Line3"));
+            Assert.IsTrue(result.Contains("\r\n        Line4"));
+            Assert.IsTrue(result.Contains("\r\n    Line5"));
+        }
     }
 }

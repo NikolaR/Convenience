@@ -202,7 +202,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -219,7 +219,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -236,7 +236,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -253,7 +253,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -269,7 +269,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -286,7 +286,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -303,7 +303,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -320,7 +320,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -337,7 +337,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -353,7 +353,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -370,7 +370,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -387,7 +387,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -403,7 +403,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -420,7 +420,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -437,7 +437,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -454,7 +454,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value);
@@ -472,7 +472,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value, repeatCount);
@@ -491,7 +491,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value, startIndex, charCount);
@@ -509,7 +509,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.Append(value, startIndex, count);
@@ -531,7 +531,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendFormat(format, arg0);
@@ -554,7 +554,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendFormat(format, args);
@@ -580,7 +580,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendFormat(provider, format, args);
@@ -603,7 +603,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendFormat(format, arg0, arg1);
@@ -627,7 +627,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendFormat(format, arg0, arg1, arg2);
@@ -644,7 +644,7 @@ namespace Convenience
             _indentOnNextAppend = true;
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendLine();
@@ -662,7 +662,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendLine(value);
@@ -687,7 +687,7 @@ namespace Convenience
         {
             if (_indentOnNextAppend)
             {
-                Indent();
+                WriteIndent();
                 _indentOnNextAppend = false;
             }
             _wrapped.AppendFormat(format, arg0, arg1, arg2);
@@ -1072,10 +1072,61 @@ namespace Convenience
         /// <summary>
         /// Writes indentation characters at current position depending on current indentation level.
         /// </summary>
-        public void Indent()
+        public void WriteIndent()
         {
             for (int i = 0; i < IndentLevel; i++)
                 _wrapped.Append(IndentLevelContent);
+        }
+
+        /// <summary>
+        /// Returns indentation scope token. Indentation level is increased upon
+        /// call to this method, and it is decreased once indentation token is disposed.
+        /// </summary>
+        /// <returns>Indentation token</returns>
+        public IndentationToken Indent()
+        {
+            return new IndentationToken(this);
+        }
+
+        /// <summary>
+        /// Returns indentation scope token. Indentation level is increased upon
+        /// call to this method, and it is decreased once indentation token is disposed.
+        /// </summary>
+        /// <param name="levelsToindent">Number of levels to indent from current level.</param>
+        /// <returns>Indentation token</returns>
+        public IndentationToken Indent(int levelsToIndent)
+        {
+            return new IndentationToken(this, levelsToIndent);
+        }
+
+        /// <summary>
+        /// Disposable indentation token. Once instantiated, it increases indentation level of StringBuilder2,
+        /// and once disposed, decreases the indentation level.
+        /// </summary>
+        public class IndentationToken : IDisposable
+        {
+            private readonly StringBuilder2 _sb;
+            private StringBuilder2 stringBuilder2;
+            private int _levelsToIndent;
+
+            internal IndentationToken(StringBuilder2 sb)
+            {
+                _sb = sb;
+                _levelsToIndent = 1;
+                _sb.IndentLevel++;
+            }
+
+            internal IndentationToken(StringBuilder2 sb, int levelsToIndent)
+            {
+                _sb = sb;
+                _levelsToIndent = levelsToIndent;
+                _sb.IndentLevel += _levelsToIndent;
+            }
+
+            public void Dispose()
+            {
+                _sb.IndentLevel -= _levelsToIndent;
+            }
         }
     }
 }
