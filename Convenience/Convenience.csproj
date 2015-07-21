@@ -61,6 +61,7 @@
     <Compile Include="ContextStore\WcfContextStore.cs" />
     <Compile Include="ContextStore\WcfDataContext.cs" />
     <Compile Include="Singleton.cs" />
+    <Compile Include="StringBuilder2.cs" />
     <Compile Include="SystemTime.cs" />
     <Compile Include="TwoWayDictionary.cs" />
     <Compile Include="WeakMemoryCache.cs" />

@@ -68,6 +68,7 @@
     <Compile Include="ObservableCollestionExtensionsTests.cs" />
     <Compile Include="BinarySerializationUtilsTests.cs" />
     <Compile Include="ReflectionTests.cs" />
+    <Compile Include="StringBuilder2Tests.cs" />
     <Compile Include="TwoWayDictionaryTests.cs" />
     <Compile Include="TypeCheckTests.cs" />
   </ItemGroup>
