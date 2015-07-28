@@ -61,6 +61,7 @@
     <Compile Include="Experiments\StaticFieldsInGenericClass.cs" />
     <Compile Include="Experiments\TypeChecking.cs" />
     <Compile Include="Experiments\WeakReferenceExperiments.cs" />
+    <Compile Include="NullSafeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CollectionSizeComparisonTests.cs" />
     <Compile Include="CollectionEqualityComparisonTests.cs" />

@@ -14,7 +14,7 @@
 .NET library which provides collection of methods and classes useful in different everyday programming tasks. Rather then writing boilerplate code over and over I'm consolidating what I find useful into a library.
 	</description>
     <releaseNotes>
-- New StringBuilder2 class which provides line indentation functionality
+- Added utility for safe null dereferencing on long property access chains
     </releaseNotes>
     <copyright>Copyright &#169; 2015 Nikola Radosavljević</copyright>
     <tags></tags>

@@ -60,6 +60,7 @@
     <Compile Include="ContextStore\ThreadStaticStore.cs" />
     <Compile Include="ContextStore\WcfContextStore.cs" />
     <Compile Include="ContextStore\WcfDataContext.cs" />
+    <Compile Include="NullSafe.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="StringBuilder2.cs" />
     <Compile Include="SystemTime.cs" />
